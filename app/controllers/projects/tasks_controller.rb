@@ -1,5 +1,6 @@
-class TasksController < ApplicationController
+class Projects::TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_project only: [:show, :new, :create, :edit, :update, :destroy]
   def show
   end
 
@@ -12,6 +13,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.project_id = @project.id
 
     respond_to do |format|
       if @task.save
@@ -48,6 +50,10 @@ class TasksController < ApplicationController
     def set_task
       @task = Task.find(params[:id])
     end 
+
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
 
     def task_params
       params.require(:task).permit(:title, :description, :project_id, :completed, :task_file)
