@@ -1,6 +1,6 @@
 class Projects::TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_project only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :new, :create, :edit, :update, :destroy]
   def show
   end
 
@@ -18,7 +18,7 @@ class Projects::TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was created successfully!" }
-        format.json { render :show, status :created, location: @task }
+        format.json { render :show, status: :created, location: @task }
       else 
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity } 
@@ -30,7 +30,7 @@ class Projects::TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was updated successfully!" }
-        format.json { render :show, status :created, location: @task }
+        format.json { render :show, status: :created, location: @task }
       else 
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity } 
