@@ -54,9 +54,6 @@ gem "carrierwave"
 # Run Filters, Auto sizing 
 gem "mini_magick", "~> 3.5.0"
 
-# API connector 
-# gem "fog"
-
 # Handles creds securly 
 gem "figaro"
 
