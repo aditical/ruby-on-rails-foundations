@@ -55,7 +55,7 @@ gem "carrierwave"
 gem "mini_magick", "~> 3.5.0"
 
 # API connector 
-gem "fog"
+# gem "fog"
 
 # Handles creds securly 
 gem "figaro"
