@@ -1,14 +1,14 @@
 class TaskFileUploader < CarrierWave::Uploader::Base
 
   #include RMagick or MiniMagic support 
-  include CarrierWave::mini_magick
+  include CarrierWave::MiniMagick
 
   #include the sprockets-rails helper for Rails 4+ asset pipeline compatibility 
   include Sprockets::Rails::Helper
 
   # Choose what kind of storage to use for the uploader
   # storage : file
-  storage : fog
+  storage :file
 
   # Override the directory where uploaded files will be restored 
   # This is a sensible default for uplaoders that are meant to be mounted:
