@@ -17,7 +17,7 @@ class Projects::TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: "Task was created successfully!" }
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was created successfully!" }
         format.json { render :show, status: :created, location: @task }
       else 
         format.html { render :new }
@@ -29,7 +29,7 @@ class Projects::TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was updated successfully!" }
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was updated successfully!" }
         format.json { render :show, status: :created, location: @task }
       else 
         format.html { render :edit }
